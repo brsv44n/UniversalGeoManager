@@ -6,27 +6,33 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.huawei.hms.api.HuaweiApiAvailability
 
-fun isHMSAvailable (context: Context) {
-    val isHmsAvailable = HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(context) == ConnectionResult.SUCCESS
-    val resultCodeHms = isHmsAvailable
-    if (isHmsAvailable) {
+fun isHMSAvailable (context: Context): Boolean {
+    val isHmsAvailable = HuaweiApiAvailability.getInstance()
+    val resultCodeHms = isHmsAvailable.isHuaweiMobileServicesAvailable(context)
+
+    if (resultCodeHms == ConnectionResult.SUCCESS) {
         Log.d("MainActivityLogs", "Huawei Mobile Services is available")
+        return true
     } else {
         Log.d("MainActivityLogs", "Huawei Mobile Services is not available")
+        return false
     }
 }
 
-fun isGMSAvailable (context: Context) {
+fun isGMSAvailable (context: Context): Boolean {
     val googleApiAvailability = GoogleApiAvailability.getInstance()
     val resultCode = googleApiAvailability.isGooglePlayServicesAvailable(context)
 
     if (resultCode == ConnectionResult.SUCCESS) {
         Log.d("MainActivityLogs", "Google Play Services is available")
+        return true
     } else {
         if (googleApiAvailability.isUserResolvableError(resultCode)) {
             Log.d("MainActivityLogs", "Google Play Services is not available")
+            return false
         } else {
             Log.d("MainActivityLogs", "Google Play Services is not installed and can't be")
+            return false
         }
     }
 }
