@@ -37,6 +37,9 @@ class LocationRequest private constructor() {
             PRIORITY_HD_ACCURACY -> {
                 hmsLocationRequest.setPriority(PRIORITY_HD_ACCURACY)
             }
+            else -> {
+                throw Exception("Incorrect priority code")
+            }
         }
     }
 }
