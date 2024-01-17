@@ -39,4 +39,6 @@ class LocationRequest private constructor() {
             }
         }
     }
+
+    //TODO добавить остальные методы
 }

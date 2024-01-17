@@ -10,6 +10,8 @@ interface TaskWrapper<Result> {
     fun isCanceled(): Boolean
     fun isComplete(): Boolean
     fun isSuccessful(): Boolean
+
+    //TODO возможно придется добавить и свои варианты для методов continueWith/continueWithTask/onSuccessTask
 }
 
 interface OnCancelledListener {

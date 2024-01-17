@@ -13,6 +13,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import java.lang.reflect.Modifier
 
+//TODO лишнее, можно выпилить
 class ULocationManager(private val context: Context): ULocationManagerInterface {
 
     private val GMSfusedLocationClient: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)

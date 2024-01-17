@@ -1,17 +1,22 @@
 package com.example.universalgeomanager.universalLocation
 
 import android.location.Location
+import android.os.Looper
+import com.example.universalgeomanager.universalLocation.location.LocationAvailability
+import com.example.universalgeomanager.universalLocation.location.LocationCallback
 
 
 interface LocationProviderClient {
+
     fun getLastLocation(): TaskWrapper<Location>
 
-    fun requestLocationUpdates(request: LocationRequest): TaskWrapper<Any>
+    fun requestLocationUpdates(request: LocationRequest, locationCallback: LocationCallback, looper: Looper?): TaskWrapper<Any>
 
-    //TODO Add return type LocationCallback or LocationListener
-    //only for now, later add overrides
-    fun removeLocationUpdates()
+    //TODO add requestLocationUpdates(LocationRequest, PendingIntent): TaskWrapper<Any>
 
-    //TODO Add return type LocationAvailability
-    fun getLocationAvailability()
+    fun removeLocationUpdates(locationCallback: LocationCallback)
+
+    //TODO add removeLocationUpdates(PendingIntent)
+
+    fun getLocationAvailability(): TaskWrapper<LocationAvailability>
 }
