@@ -48,13 +48,12 @@ class LocationProviderClientGms(private val context: Context): LocationProviderC
                 locationRequestMapper.createGmsLocationRequest(request),
                 locationCallbackGms,
                 looper
-            ).continueWith { } //TODO проверить что корректно работает
+            ).continueWith {  }
         )
 
     }
 
     override fun removeLocationUpdates(locationCallback: LocationCallback) {
-        //TODO проверить что вариант с хранением колбеков в ConcurrentHashMap работает корректно
         callbacks[locationCallback]?.let {
             locationProvider.removeLocationUpdates(it)
             callbacks.remove(locationCallback)
