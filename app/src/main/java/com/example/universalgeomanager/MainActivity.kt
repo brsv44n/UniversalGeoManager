@@ -18,12 +18,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 /**
- * План:
- * +1) доделать LocationRequest +
- * +2) доделать LocationProviderClient и реализации +
- * +3) если в п2 понадобится - добавить недостающие методы в TaskWrapper (см коммент там) и реализовать для gms/hms ---
- * !4) реализовать универсальный SettingsClient для hms/gms и все сопутствующее - LocationSettingsRequest, LocationSettingsResponse, LocationSettingsStates, ResolvableApiException и т.д.
- * !5) реализовать LocationProviderClient для дефолтного LocationManager (надо думать как)
+ * реализовать универсальный SettingsClient для hms/gms и все сопутствующее - LocationSettingsRequest, LocationSettingsResponse, LocationSettingsStates, ResolvableApiException и т.д.
+ * реализовать LocationProviderClient для дефолтного LocationManager (надо думать как)
  */
 
 class MainActivity : ComponentActivity() {
