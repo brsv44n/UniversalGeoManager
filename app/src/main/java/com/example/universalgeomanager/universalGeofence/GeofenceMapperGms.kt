@@ -10,9 +10,15 @@ class GeofenceMapperGms {
         if (geofence.notificationResponsiveness != null) builder.setNotificationResponsiveness(geofence.notificationResponsiveness!!)
         if (geofence.requestedId != null) builder.setRequestId(geofence.requestedId!!)
         if (geofence.transitionsType != null) builder.setTransitionTypes(geofence.transitionsType!!)
+        if (
+            geofence.longitude != null &&
+            geofence.latitude != null &&
+            geofence.radius != null
+        ) {
+            builder.setCircularRegion(geofence.latitude!!, geofence.longitude!!, geofence.radius!!)
+        }
 
         return builder.build()
     }
-
 
 }

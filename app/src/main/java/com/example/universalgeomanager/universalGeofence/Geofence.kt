@@ -10,20 +10,28 @@ class Geofence private constructor() {
         fun create() : Geofence = Geofence()
     }
 
+
     var expirationTime: Long? = null
         private set
+
     var latitude: Double? = null
         private set
+
     var loiteringDelay: Int? = null
         private set
+
     var longitude: Double? = null
         private set
+
     var notificationResponsiveness: Int? = null
         private set
+
     var radius: Float? = null
         private set
+
     var requestedId: String? = null
         private set
+
     var transitionsType: Int? = null
         private set
 
@@ -47,7 +55,9 @@ class Geofence private constructor() {
         this.transitionsType = transitionTypes
     }
 
-//    fun setCircularRegion(latitude: Double, longitude: Double, radius: Float){
-//
-//    }
+    fun setCircularRegion(latitude: Double, longitude: Double, radius: Float) {
+        this.latitude = latitude
+        this.longitude = longitude
+        this.radius = radius
+    }
 }
