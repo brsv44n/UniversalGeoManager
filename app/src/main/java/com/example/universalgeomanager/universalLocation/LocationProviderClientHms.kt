@@ -5,7 +5,6 @@ import android.location.Location
 import android.os.Looper
 import androidx.annotation.RequiresPermission
 import com.example.universalgeomanager.universalLocation.location.LocationAvailability
-import com.example.universalgeomanager.universalLocation.location.LocationAvailabilityGms
 import com.example.universalgeomanager.universalLocation.location.LocationAvailabilityHms
 import com.example.universalgeomanager.universalLocation.location.LocationCallback
 import com.example.universalgeomanager.universalLocation.location.LocationResultHms
@@ -32,6 +31,7 @@ class LocationProviderClientHms(private val context: Context): LocationProviderC
         locationCallback: LocationCallback,
         looper: Looper?
     ): TaskWrapper<Any> {
+
         val locationCallbackHms = object : com.huawei.hms.location.LocationCallback() {
             override fun onLocationResult(locationResult: com.huawei.hms.location.LocationResult) =
                 locationCallback.onLocationResult(LocationResultHms(locationResult))
@@ -46,12 +46,12 @@ class LocationProviderClientHms(private val context: Context): LocationProviderC
                 locationRequestMapper.createHmsLocationRequest(request),
                 locationCallbackHms,
                 looper
-            ).continueWith { } //TODO проверить что корректно работает
+            ).continueWith { }
         )
     }
 
     override fun removeLocationUpdates(locationCallback: LocationCallback) {
-        //TODO проверить что вариант с хранением колбеков в ConcurrentHashMap работает корректно
+
         callbacks[locationCallback]?.let {
             locationProvider.removeLocationUpdates(it)
             callbacks.remove(locationCallback)

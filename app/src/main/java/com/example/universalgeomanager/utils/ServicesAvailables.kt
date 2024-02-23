@@ -11,10 +11,10 @@ fun isHMSAvailable (context: Context): Boolean {
     val resultCodeHms = isHmsAvailable.isHuaweiMobileServicesAvailable(context)
 
     if (resultCodeHms == ConnectionResult.SUCCESS) {
-        Log.d("MainActivityLogs", "Huawei Mobile Services is available")
+        Log.d("ServicesAvailability", "Huawei Mobile Services is available")
         return true
     } else {
-        Log.d("MainActivityLogs", "Huawei Mobile Services is not available")
+        Log.d("ServicesAvailability", "Huawei Mobile Services is not available")
         return false
     }
 }
@@ -24,14 +24,14 @@ fun isGMSAvailable (context: Context): Boolean {
     val resultCode = googleApiAvailability.isGooglePlayServicesAvailable(context)
 
     if (resultCode == ConnectionResult.SUCCESS) {
-        Log.d("MainActivityLogs", "Google Play Services is available")
+        Log.d("ServicesAvailability", "Google Play Services is available")
         return true
     } else {
         if (googleApiAvailability.isUserResolvableError(resultCode)) {
-            Log.d("MainActivityLogs", "Google Play Services is not available")
+            Log.d("ServicesAvailability", "Google Play Services is not available")
             return false
         } else {
-            Log.d("MainActivityLogs", "Google Play Services is not installed and can't be")
+            Log.d("ServicesAvailability", "Google Play Services is not installed and can't be")
             return false
         }
     }

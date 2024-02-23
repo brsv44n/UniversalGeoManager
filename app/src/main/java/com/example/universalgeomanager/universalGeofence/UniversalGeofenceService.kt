@@ -7,6 +7,7 @@ import com.example.universalgeomanager.utils.isHMSAvailable
 object UniversalGeofenceService {
     fun getGeofenceClient(context: Context): GeofenceClient {
         return if (isGMSAvailable(context)) GeofenceClientGms(context)
-        else (isHMSAvailable(context)) GeofenceClientHms(context)
+        else if (isHMSAvailable(context)) GeofenceClientHms(context)
+        else TODO("something if missing...")
     }
 }
