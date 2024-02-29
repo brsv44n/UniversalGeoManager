@@ -9,8 +9,7 @@ class GeofenceRequest private constructor() {
         fun create(): GeofenceRequest = GeofenceRequest()
     }
 
-    var geofences: MutableList<Geofence>? = mutableListOf()
-        private set
+    var geofences: MutableList<Geofence> = mutableListOf()
 
     var initialTrigger: Int? = null
         private set
@@ -20,11 +19,11 @@ class GeofenceRequest private constructor() {
     }
 
     fun addGeofence(geofence: Geofence){
-        this.geofences?.add(geofence)
+        this.geofences.add(geofence)
     }
 
     fun addGeofences(geofences: Collection<Geofence>){
-        this.geofences?.addAll(geofences)
+        this.geofences.addAll(geofences)
     }
 
 }

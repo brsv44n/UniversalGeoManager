@@ -3,8 +3,9 @@ package com.example.universalgeomanager.universalLocation.settingsClient
 import android.content.Intent
 import android.os.Parcel
 
-class LocationSettingsStatesGms(private val locationSettingsStates: com.google.android.gms.location.LocationSettingsStates?)
-    :LocationSettingsStates{
+class LocationSettingsStatesGms(
+    private val locationSettingsStates: com.google.android.gms.location.LocationSettingsStates?
+):LocationSettingsStates{
     override fun fromIntent(intent: Intent): LocationSettingsStates {
         TODO()
     }

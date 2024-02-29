@@ -3,8 +3,6 @@ package com.example.universalgeomanager.universalLocation.settingsClient
 import android.content.Context
 import android.content.Intent
 import android.provider.Settings
-import com.example.universalgeomanager.universalLocation.LocationRequest
-import com.example.universalgeomanager.universalLocation.LocationRequestGmsMapper
 import com.example.universalgeomanager.universalLocation.TaskWrapper
 import com.example.universalgeomanager.universalLocation.TaskWrapperGms
 import com.google.android.gms.location.LocationServices
@@ -13,15 +11,12 @@ class SettingsClientGms(private val context: Context): SettingsClientInterface {
 
     private val settingsClient: com.google.android.gms.location.SettingsClient = LocationServices.getSettingsClient(context)
 
-    private val locationRequestMapper = LocationRequestGmsMapper()
+    override fun checkLocationSettings(locationSettingsRequest: LocationSettingsRequest): TaskWrapper<LocationSettingsResponse> {
+        val locationSettingsRequestGmsMapper = LocationSettingRequestGmsMapper()
 
-    override fun checkLocationSettings(locationRequest: LocationRequest): TaskWrapper<LocationSettingsResponse> {
-        val builder = com.google.android.gms.location.LocationSettingsRequest.Builder()
-            .addLocationRequest(locationRequestMapper.createGmsLocationRequest(locationRequest))
+        val locationSettingsRequestGMS = locationSettingsRequestGmsMapper.createLocationSettingsRequest(locationSettingsRequest)
         return TaskWrapperGms(
-            settingsClient.checkLocationSettings(builder.build()).continueWith { task ->
-                LocationSettingsResponseGms(task.result)
-            }
+            settingsClient.checkLocationSettings(locationSettingsRequestGMS).continueWith { LocationSettingsResponseGms(it.result) }
         )
 
     }

@@ -15,12 +15,12 @@ class GeofenceRequestGmsMapper {
             INITIAL_TRIGGER_EXIT -> builder.setInitialTrigger(com.google.android.gms.location.GeofencingRequest.INITIAL_TRIGGER_EXIT)
         }
 
-        if (request.geofences?.size == 1) builder.addGeofence(
-            geofenceMapper.createGeofence(request.geofences!![0])
-        ) else if (request.geofences?.size!! > 1) {
+        if (request.geofences.size == 1) builder.addGeofence(
+            geofenceMapper.createGeofence(request.geofences[0])
+        ) else if (request.geofences.size > 1) {
 
             val tobeAdded = mutableListOf<com.google.android.gms.location.Geofence>()
-            request.geofences!!.forEach {
+            request.geofences.forEach {
                 tobeAdded.add(geofenceMapper.createGeofence(it))
             }
             builder.addGeofences(tobeAdded)

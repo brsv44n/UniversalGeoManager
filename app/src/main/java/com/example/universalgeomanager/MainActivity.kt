@@ -87,7 +87,6 @@ class MainActivity : ComponentActivity() {
             }
         )
 
-
         if (!PermissionHelper.checkLocationPermission(this)) {
             PermissionHelper.requestLocationPermission(this)
         } else {
