@@ -16,4 +16,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "UniversalGeoManager"
 include(":app")
- 
+include(":UniLocation")

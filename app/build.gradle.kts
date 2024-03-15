@@ -67,10 +67,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    //Google services location
-    implementation("com.google.android.gms:play-services-location:21.0.1")
-    //HMS location
-    implementation("com.huawei.hms:location:6.12.0.300")
+    implementation(project(":UniLocation"))
 
 
 }

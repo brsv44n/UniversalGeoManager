@@ -6,23 +6,17 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.example.unilocation.universalLocation.LocationRequest
+import com.example.unilocation.universalLocation.OnCompleteListener
+import com.example.unilocation.universalLocation.OnFailureListener
+import com.example.unilocation.universalLocation.OnSuccessListener
+import com.example.unilocation.universalLocation.UniversalLocationService
+import com.example.unilocation.universalLocation.location.LocationAvailability
+import com.example.unilocation.universalLocation.location.LocationCallback
+import com.example.unilocation.universalLocation.location.LocationResult
 import com.example.universalgeomanager.ui.theme.UniversalGeoManagerTheme
-import com.example.universalgeomanager.universalGeofence.Geofence
-import com.example.universalgeomanager.universalGeofence.GeofenceBroadcastReceiver
-import com.example.universalgeomanager.universalGeofence.GeofenceRequest
-import com.example.universalgeomanager.universalGeofence.UniversalGeofenceService
-import com.example.universalgeomanager.universalLocation.LocationRequest
-import com.example.universalgeomanager.universalLocation.OnCompleteListener
-import com.example.universalgeomanager.universalLocation.OnFailureListener
-import com.example.universalgeomanager.universalLocation.OnSuccessListener
-import com.example.universalgeomanager.universalLocation.UniversalLocationService
-import com.example.universalgeomanager.universalLocation.location.LocationAvailability
-import com.example.universalgeomanager.universalLocation.location.LocationCallback
-import com.example.universalgeomanager.universalLocation.location.LocationResult
-import com.example.universalgeomanager.utils.PermissionHelper
 
 /**
- * реализовать универсальный SettingsClient для hms/gms и все сопутствующее - LocationSettingsRequest, LocationSettingsResponse, LocationSettingsStates, ResolvableApiException и т.д.
  * реализовать LocationProviderClient для дефолтного LocationManager (надо думать как)
  */
 
@@ -30,10 +24,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val geofenceProviderClient = UniversalGeofenceService.getGeofenceClient(this)
+        val geofenceProviderClient = com.example.unilocation.universalGeofence.UniversalGeofenceService.getGeofenceClient(this)
 
         val locationProviderClient = UniversalLocationService.getLocationProviderClient(this)
-        locationProviderClient.getLocationAvailability().addOnCompleteListener(object : OnCompleteListener<LocationAvailability> {
+        locationProviderClient.getLocationAvailability().addOnCompleteListener(object :
+            OnCompleteListener<LocationAvailability> {
             override fun onComplete(task: Any) {
                 Log.d("MainActivityLogs", "Location is available from location availability")
             }
@@ -59,18 +54,18 @@ class MainActivity : ComponentActivity() {
         }
 
         val geofencePendingIntent: PendingIntent by lazy {
-            val intent = Intent(this, GeofenceBroadcastReceiver::class.java)
+            val intent = Intent(this, com.example.unilocation.universalGeofence.GeofenceBroadcastReceiver::class.java)
             PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         }
-        val geofence = Geofence.create().apply {
+        val geofence = com.example.unilocation.universalGeofence.Geofence.create().apply {
             setRequestId("First_geofence")
             setCircularRegion(43.1195157, 131.8978022, 10f)
             setExpirationDuration(10000)
-            setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
+            setTransitionTypes(com.example.unilocation.universalGeofence.Geofence.GEOFENCE_TRANSITION_ENTER)
         }
-        val geofenceRequest1 = GeofenceRequest.create().apply {
+        val geofenceRequest1 = com.example.unilocation.universalGeofence.GeofenceRequest.create().apply {
             addGeofence(geofence)
-            setInitialTrigger(GeofenceRequest.INITIAL_TRIGGER_ENTER)
+            setInitialTrigger(com.example.unilocation.universalGeofence.GeofenceRequest.INITIAL_TRIGGER_ENTER)
         }
 
         geofenceProviderClient.addGeofences(geofenceRequest1, geofencePendingIntent).addOnSuccessListener(
@@ -87,8 +82,8 @@ class MainActivity : ComponentActivity() {
             }
         )
 
-        if (!PermissionHelper.checkLocationPermission(this)) {
-            PermissionHelper.requestLocationPermission(this)
+        if (!com.example.unilocation.utils.PermissionHelper.checkLocationPermission(this)) {
+            com.example.unilocation.utils.PermissionHelper.requestLocationPermission(this)
         } else {
             locationProviderClient.requestLocationUpdates(currRequest1, callback, null)
             Log.d("MainActivityLogs", "Permission granted")
