@@ -29,6 +29,9 @@ class TaskWrapperGms<Result>(
 
     override fun addOnFailureListener(listener: OnFailureListener): TaskWrapper<Result> {
         task.addOnFailureListener(object : com.google.android.gms.tasks.OnFailureListener{
+            /**
+             * TODO и тут после добавления параметра в onFailure конвертить исключения тоже
+             */
             override fun onFailure(p0: java.lang.Exception) = listener.onFailure()
         })
         return this
@@ -42,6 +45,18 @@ class TaskWrapperGms<Result>(
         }
     }
 
+    /**
+     * TODO Видимо тут нужно преобразовывать ResolvableApiException гугловский в ResolvableApiExceptionGms
+     * (и в ResolvableApiExceptionHms в хуавейской реализации)
+     * типа:
+     * val exception = taskException ?: return null
+     * if (exception is com.google.android.gms.common.api.ResolvableApiException) {
+     *   return ResolvableApiExceptionGms(exception)
+     * } else {
+     *   return exception
+     * }
+     * Но у гугла и хуавея есть еще "свои" ApiException и UnsupportedApiCallException, их тоже надо завернуть в свои классы
+     */
     override fun getException(): Exception = task.let { it.exception!! }
 
     override fun isCanceled(): Boolean = task.isCanceled

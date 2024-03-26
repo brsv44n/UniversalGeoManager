@@ -23,6 +23,11 @@ class LocationSettingRequestGmsMapper {
 
         }
 
+        /**
+         * TODO просто для информации:
+         * можно request.alwaysShow?.let { builder.setAlwaysShow(it) }
+         * force unwrap лучше не использовать, т.к. это может привести к NPE (в этом случае конечно нет), да и в целом некрасиво :)
+         */
         if (request.alwaysShow != null) builder.setAlwaysShow(request.alwaysShow!!)
         if (request.needBle != null) builder.setNeedBle(request.needBle!!)
 

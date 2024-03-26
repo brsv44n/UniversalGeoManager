@@ -20,6 +20,7 @@ class LocationRequestHmsMapper {
                 }
                 hmsRequest.setPriority(hmsPriority)
             }
+            //TODO тут везде !!. поменять на ?. Сейчас все force unwrap-ится и будет падать если что-то из этого null
             request.expirationDuration!!.let { durationTimeMillis ->
                 hmsRequest.setExpirationDuration(durationTimeMillis)
             }
