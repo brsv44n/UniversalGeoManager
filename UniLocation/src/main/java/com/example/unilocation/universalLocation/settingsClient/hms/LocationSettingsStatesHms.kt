@@ -1,7 +1,8 @@
-package com.example.unilocation.universalLocation.settingsClient
+package com.example.unilocation.universalLocation.settingsClient.hms
 
 import android.content.Intent
 import android.os.Parcel
+import com.example.unilocation.universalLocation.settingsClient.LocationSettingsStates
 
 class LocationSettingsStatesHms(
     private val locationSettingsStates: com.huawei.hms.location.LocationSettingsStates?

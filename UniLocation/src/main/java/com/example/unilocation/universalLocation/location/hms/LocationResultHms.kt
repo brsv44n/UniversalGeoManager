@@ -1,6 +1,7 @@
-package com.example.unilocation.universalLocation.location
+package com.example.unilocation.universalLocation.location.hms
 
 import android.location.Location
+import com.example.unilocation.universalLocation.location.LocationResult
 
 class LocationResultHms(
     private val locationResult: com.huawei.hms.location.LocationResult

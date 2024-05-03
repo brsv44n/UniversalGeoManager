@@ -1,5 +1,6 @@
-package com.example.unilocation.universalGeofence
+package com.example.unilocation.universalGeofence.gms
 
+import com.example.unilocation.universalGeofence.GeofenceRequest
 import com.example.unilocation.universalGeofence.GeofenceRequest.Companion.INITIAL_TRIGGER_DWELL
 import com.example.unilocation.universalGeofence.GeofenceRequest.Companion.INITIAL_TRIGGER_ENTER
 import com.example.unilocation.universalGeofence.GeofenceRequest.Companion.INITIAL_TRIGGER_EXIT

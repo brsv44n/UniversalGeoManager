@@ -1,6 +1,7 @@
-package com.example.unilocation.universalLocation.settingsClient
+package com.example.unilocation.universalLocation.settingsClient.gms
 
-import com.example.unilocation.universalLocation.LocationRequestGmsMapper
+import com.example.unilocation.universalLocation.gms.LocationRequestGmsMapper
+import com.example.unilocation.universalLocation.settingsClient.LocationSettingsRequest
 
 class LocationSettingRequestGmsMapper {
 
@@ -23,8 +24,8 @@ class LocationSettingRequestGmsMapper {
 
         }
 
-        if (request.alwaysShow != null) builder.setAlwaysShow(request.alwaysShow!!)
-        if (request.needBle != null) builder.setNeedBle(request.needBle!!)
+        request.alwaysShow?.let { builder.setAlwaysShow(it) }
+        request.needBle?.let { builder.setNeedBle(it) }
 
         return builder.build()
     }

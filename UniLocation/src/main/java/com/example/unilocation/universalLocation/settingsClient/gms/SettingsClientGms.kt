@@ -1,10 +1,13 @@
-package com.example.unilocation.universalLocation.settingsClient
+package com.example.unilocation.universalLocation.settingsClient.gms
 
 import android.content.Context
 import android.content.Intent
 import android.provider.Settings
 import com.example.unilocation.universalLocation.TaskWrapper
-import com.example.unilocation.universalLocation.TaskWrapperGms
+import com.example.unilocation.universalLocation.gms.TaskWrapperGms
+import com.example.unilocation.universalLocation.settingsClient.LocationSettingsRequest
+import com.example.unilocation.universalLocation.settingsClient.LocationSettingsResponse
+import com.example.unilocation.universalLocation.settingsClient.SettingsClientInterface
 import com.google.android.gms.location.LocationServices
 
 class SettingsClientGms(private val context: Context): SettingsClientInterface {

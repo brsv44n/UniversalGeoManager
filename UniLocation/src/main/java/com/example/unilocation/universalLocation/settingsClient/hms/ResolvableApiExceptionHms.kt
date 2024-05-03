@@ -1,7 +1,8 @@
-package com.example.unilocation.universalLocation.settingsClient
+package com.example.unilocation.universalLocation.settingsClient.hms
 
 import android.app.Activity
 import android.app.PendingIntent
+import com.example.unilocation.universalLocation.settingsClient.ResolvableApiException
 
 class ResolvableApiExceptionHms(
     private val resApiExc: com.huawei.hms.common.ResolvableApiException

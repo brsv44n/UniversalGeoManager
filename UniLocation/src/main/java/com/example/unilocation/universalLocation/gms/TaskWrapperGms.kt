@@ -1,5 +1,10 @@
-package com.example.unilocation.universalLocation
+package com.example.unilocation.universalLocation.gms
 
+import com.example.unilocation.universalLocation.OnCancelledListener
+import com.example.unilocation.universalLocation.OnCompleteListener
+import com.example.unilocation.universalLocation.OnFailureListener
+import com.example.unilocation.universalLocation.OnSuccessListener
+import com.example.unilocation.universalLocation.TaskWrapper
 import com.google.android.gms.tasks.Task
 
 class TaskWrapperGms<Result>(

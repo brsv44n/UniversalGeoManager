@@ -1,6 +1,8 @@
 package com.example.unilocation.universalLocation
 
 import android.content.Context
+import com.example.unilocation.universalLocation.gms.LocationProviderClientGms
+import com.example.unilocation.universalLocation.hms.LocationProviderClientHms
 import com.example.unilocation.utils.isGMSAvailable
 import com.example.unilocation.utils.isHMSAvailable
 

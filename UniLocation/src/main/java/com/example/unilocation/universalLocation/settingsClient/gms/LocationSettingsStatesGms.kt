@@ -1,7 +1,8 @@
-package com.example.unilocation.universalLocation.settingsClient
+package com.example.unilocation.universalLocation.settingsClient.gms
 
 import android.content.Intent
 import android.os.Parcel
+import com.example.unilocation.universalLocation.settingsClient.LocationSettingsStates
 
 class LocationSettingsStatesGms(
     private val locationSettingsStates: com.google.android.gms.location.LocationSettingsStates?

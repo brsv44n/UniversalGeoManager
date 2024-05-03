@@ -1,10 +1,13 @@
-package com.example.unilocation.universalLocation.settingsClient
+package com.example.unilocation.universalLocation.settingsClient.hms
 
 import android.content.Context
 import android.content.Intent
 import android.provider.Settings
 import com.example.unilocation.universalLocation.TaskWrapper
-import com.example.unilocation.universalLocation.TaskWrapperHms
+import com.example.unilocation.universalLocation.hms.TaskWrapperHms
+import com.example.unilocation.universalLocation.settingsClient.LocationSettingsRequest
+import com.example.unilocation.universalLocation.settingsClient.LocationSettingsResponse
+import com.example.unilocation.universalLocation.settingsClient.SettingsClientInterface
 import com.huawei.hms.location.LocationServices
 
 class SettingsClientHms(private val context: Context): SettingsClientInterface {

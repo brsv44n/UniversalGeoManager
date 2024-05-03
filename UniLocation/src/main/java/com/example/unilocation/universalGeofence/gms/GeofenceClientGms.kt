@@ -1,10 +1,12 @@
-package com.example.unilocation.universalGeofence
+package com.example.unilocation.universalGeofence.gms
 
 import android.app.PendingIntent
 import android.content.Context
 import androidx.annotation.RequiresPermission
+import com.example.unilocation.universalGeofence.GeofenceClient
+import com.example.unilocation.universalGeofence.GeofenceRequest
 import com.example.unilocation.universalLocation.TaskWrapper
-import com.example.unilocation.universalLocation.TaskWrapperGms
+import com.example.unilocation.universalLocation.gms.TaskWrapperGms
 import com.google.android.gms.location.LocationServices
 
 class GeofenceClientGms (private val context: Context): GeofenceClient {

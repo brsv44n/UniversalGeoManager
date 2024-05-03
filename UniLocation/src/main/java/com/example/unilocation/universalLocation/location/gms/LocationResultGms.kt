@@ -1,6 +1,7 @@
-package com.example.unilocation.universalLocation.location
+package com.example.unilocation.universalLocation.location.gms
 
 import android.location.Location
+import com.example.unilocation.universalLocation.location.LocationResult
 
 class LocationResultGms(
     private val locationResult: com.google.android.gms.location.LocationResult

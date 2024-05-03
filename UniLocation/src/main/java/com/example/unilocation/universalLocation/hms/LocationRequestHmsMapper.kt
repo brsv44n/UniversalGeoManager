@@ -1,5 +1,6 @@
-package com.example.unilocation.universalLocation
+package com.example.unilocation.universalLocation.hms
 
+import com.example.unilocation.universalLocation.LocationRequest
 import com.example.unilocation.universalLocation.LocationRequest.Companion.PRIORITY_BALANCED_POWER_ACCURACY
 import com.example.unilocation.universalLocation.LocationRequest.Companion.PRIORITY_HD_ACCURACY
 import com.example.unilocation.universalLocation.LocationRequest.Companion.PRIORITY_HIGH_ACCURACY
@@ -20,22 +21,33 @@ class LocationRequestHmsMapper {
                 }
                 hmsRequest.setPriority(hmsPriority)
             }
-            request.expirationDuration!!.let { durationTimeMillis ->
+
+            /*
+            request.expirationTime?.let { expirationTime = it }
+            request.expirationDuration?.let { setExpirationDuration(it) }
+            request.fastestInterval?.let { fastestInterval = it }
+            request.interval?.let { interval = it }
+            request.maxWaitTime?.let { maxWaitTime = it }
+            request.numUpdates?.let { numUpdates = it }
+            request.smallestDisplacement?.let { smallestDisplacement = it }
+            */
+
+            request.expirationDuration?.let { durationTimeMillis ->
                 hmsRequest.setExpirationDuration(durationTimeMillis)
             }
-            request.expirationTime!!.let { expirationTimeMillis ->
+            request.expirationTime?.let { expirationTimeMillis ->
                 hmsRequest.setExpirationTime(expirationTimeMillis)
             }
-            request.fastestInterval!!.let { fastestIntervalMillis ->
+            request.fastestInterval?.let { fastestIntervalMillis ->
                 hmsRequest.setFastestInterval(fastestIntervalMillis)
             }
-            request.interval!!.let { interval ->
+            request.interval?.let { interval ->
                 hmsRequest.setInterval(interval)
             }
-            request.maxWaitTime!!.let { maxWaitTimeMillis ->
+            request.maxWaitTime?.let { maxWaitTimeMillis ->
                 hmsRequest.setMaxWaitTime(maxWaitTimeMillis)
             }
-            request.numUpdates!!.let { numUpdates ->
+            request.numUpdates?.let { numUpdates ->
                 hmsRequest.setNumUpdates(numUpdates)
             }
             request.smallestDisplacement!!.let { smallestDisplacementMeters ->

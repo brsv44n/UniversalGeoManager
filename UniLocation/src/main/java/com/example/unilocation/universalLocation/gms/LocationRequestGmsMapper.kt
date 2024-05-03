@@ -1,5 +1,6 @@
-package com.example.unilocation.universalLocation
+package com.example.unilocation.universalLocation.gms
 
+import com.example.unilocation.universalLocation.LocationRequest
 import com.example.unilocation.universalLocation.LocationRequest.Companion.PRIORITY_BALANCED_POWER_ACCURACY
 import com.example.unilocation.universalLocation.LocationRequest.Companion.PRIORITY_HIGH_ACCURACY
 import com.example.unilocation.universalLocation.LocationRequest.Companion.PRIORITY_LOW_POWER
@@ -17,19 +18,13 @@ class LocationRequestGmsMapper {
                 else -> com.google.android.gms.location.Priority.PRIORITY_BALANCED_POWER_ACCURACY
             }
 
-            if (request.expirationTime != null) { expirationTime = request.expirationTime!! }
-
-            if (request.expirationDuration != null) { setExpirationDuration(request.expirationDuration!!) }
-
-            if (request.fastestInterval != null) { fastestInterval = request.fastestInterval!! }
-
-            if (request.interval != null) { interval = request.interval!! }
-
-            if (request.maxWaitTime != null) { maxWaitTime = request.maxWaitTime!! }
-
-            if (request.numUpdates != null) { numUpdates = request.numUpdates!! }
-
-            if (request.smallestDisplacement != null) { smallestDisplacement = request.smallestDisplacement!! }
+            request.expirationTime?.let { expirationTime = it }
+            request.expirationDuration?.let { setExpirationDuration(it) }
+            request.fastestInterval?.let { fastestInterval = it }
+            request.interval?.let { interval = it }
+            request.maxWaitTime?.let { maxWaitTime = it }
+            request.numUpdates?.let { numUpdates = it }
+            request.smallestDisplacement?.let { smallestDisplacement = it }
 
         }
 

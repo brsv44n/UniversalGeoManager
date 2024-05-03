@@ -1,4 +1,6 @@
-package com.example.unilocation.universalGeofence
+package com.example.unilocation.universalGeofence.hms
+
+import com.example.unilocation.universalGeofence.GeofenceRequest
 
 class GeofenceRequestHmsMapper {
     fun createGeofenceRequestGms(request: GeofenceRequest): com.huawei.hms.location.GeofenceRequest {
@@ -12,8 +14,8 @@ class GeofenceRequestHmsMapper {
             GeofenceRequest.INITIAL_TRIGGER_EXIT -> builder.setInitConversions(com.huawei.hms.location.GeofenceRequest.EXIT_INIT_CONVERSION)
         }
 
-        if (request.geofences?.size == 1) builder.createGeofence(
-            geofenceMapper.createGeofence(request.geofences!![0])
+        if (request.geofences.size == 1) builder.createGeofence(
+            geofenceMapper.createGeofence(request.geofences[0])
         ) else if (request.geofences?.size!! > 1) {
 
             val tobeAdded = mutableListOf<com.huawei.hms.location.Geofence>()

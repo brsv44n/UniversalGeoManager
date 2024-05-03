@@ -1,4 +1,6 @@
-package com.example.unilocation.universalGeofence
+package com.example.unilocation.universalGeofence.hms
+
+import com.example.unilocation.universalGeofence.Geofence
 
 class GeofenceMapperHms {
 
@@ -12,10 +14,10 @@ class GeofenceMapperHms {
             Geofence.NEVER_EXPIRE.toInt() -> builder.setConversions(com.huawei.hms.location.Geofence.GEOFENCE_NEVER_EXPIRE.toInt())
         }
 
-        if (geofence.notificationResponsiveness != null) builder.setNotificationInterval(geofence.notificationResponsiveness!!)
-        if (geofence.expirationTime != null) builder.setValidContinueTime(geofence.expirationTime!!)
-        if (geofence.loiteringDelay != null) builder.setDwellDelayTime(geofence.loiteringDelay!!)
-        if (geofence.requestedId != null) builder.setUniqueId(geofence.requestedId!!)
+        geofence.notificationResponsiveness?.let { builder.setNotificationInterval(it)}
+        geofence.expirationTime?.let { builder.setValidContinueTime(it)}
+        geofence.loiteringDelay?.let { builder.setDwellDelayTime(it)}
+        geofence.requestedId?.let { builder.setUniqueId(it)}
 
         if (
             geofence.longitude != null &&

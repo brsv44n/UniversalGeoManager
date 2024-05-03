@@ -1,5 +1,10 @@
-package com.example.unilocation.universalLocation
+package com.example.unilocation.universalLocation.hms
 
+import com.example.unilocation.universalLocation.OnCancelledListener
+import com.example.unilocation.universalLocation.OnCompleteListener
+import com.example.unilocation.universalLocation.OnFailureListener
+import com.example.unilocation.universalLocation.OnSuccessListener
+import com.example.unilocation.universalLocation.TaskWrapper
 import com.huawei.hmf.tasks.Task
 
 class TaskWrapperHms<Result>(

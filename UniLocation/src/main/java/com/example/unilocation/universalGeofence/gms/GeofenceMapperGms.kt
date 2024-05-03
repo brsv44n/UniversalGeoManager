@@ -1,5 +1,6 @@
-package com.example.unilocation.universalGeofence
+package com.example.unilocation.universalGeofence.gms
 
+import com.example.unilocation.universalGeofence.Geofence
 import com.example.unilocation.universalGeofence.Geofence.Companion.GEOFENCE_TRANSITION_DWELL
 import com.example.unilocation.universalGeofence.Geofence.Companion.GEOFENCE_TRANSITION_ENTER
 import com.example.unilocation.universalGeofence.Geofence.Companion.GEOFENCE_TRANSITION_EXIT
@@ -17,10 +18,10 @@ class GeofenceMapperGms {
             NEVER_EXPIRE.toInt() -> builder.setTransitionTypes(com.google.android.gms.location.Geofence.NEVER_EXPIRE.toInt())
         }
 
-        if (geofence.expirationTime != null) builder.setExpirationDuration(geofence.expirationTime!!)
-        if (geofence.loiteringDelay != null) builder.setLoiteringDelay(geofence.loiteringDelay!!)
-        if (geofence.notificationResponsiveness != null) builder.setNotificationResponsiveness(geofence.notificationResponsiveness!!)
-        if (geofence.requestedId != null) builder.setRequestId(geofence.requestedId!!)
+        geofence.expirationTime?.let { builder.setExpirationDuration(it) }
+        geofence.loiteringDelay?.let { builder.setLoiteringDelay(it) }
+        geofence.notificationResponsiveness?.let { builder.setNotificationResponsiveness(it) }
+        geofence.requestedId?.let { builder.setRequestId(it) }
 
         if (
             geofence.longitude != null &&

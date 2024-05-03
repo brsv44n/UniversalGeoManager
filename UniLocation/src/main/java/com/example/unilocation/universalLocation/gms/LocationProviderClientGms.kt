@@ -1,13 +1,16 @@
-package com.example.unilocation.universalLocation
+package com.example.unilocation.universalLocation.gms
 
 import android.content.Context
 import android.location.Location
 import android.os.Looper
 import androidx.annotation.RequiresPermission
+import com.example.unilocation.universalLocation.LocationProviderClient
+import com.example.unilocation.universalLocation.LocationRequest
+import com.example.unilocation.universalLocation.TaskWrapper
 import com.example.unilocation.universalLocation.location.LocationAvailability
-import com.example.unilocation.universalLocation.location.LocationAvailabilityGms
+import com.example.unilocation.universalLocation.location.gms.LocationAvailabilityGms
 import com.example.unilocation.universalLocation.location.LocationCallback
-import com.example.unilocation.universalLocation.location.LocationResultGms
+import com.example.unilocation.universalLocation.location.gms.LocationResultGms
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import java.util.concurrent.ConcurrentHashMap

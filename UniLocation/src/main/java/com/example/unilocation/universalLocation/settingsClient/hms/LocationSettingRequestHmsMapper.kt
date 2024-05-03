@@ -1,6 +1,7 @@
-package com.example.unilocation.universalLocation.settingsClient
+package com.example.unilocation.universalLocation.settingsClient.hms
 
-import com.example.unilocation.universalLocation.LocationRequestHmsMapper
+import com.example.unilocation.universalLocation.hms.LocationRequestHmsMapper
+import com.example.unilocation.universalLocation.settingsClient.LocationSettingsRequest
 
 class LocationSettingRequestHmsMapper {
 
@@ -23,8 +24,8 @@ class LocationSettingRequestHmsMapper {
 
         }
 
-        if (request.alwaysShow != null) builder.setAlwaysShow(request.alwaysShow!!)
-        if (request.needBle != null) builder.setNeedBle(request.needBle!!)
+        request.alwaysShow?.let { builder.setAlwaysShow(it) }
+        request.needBle?.let { builder.setNeedBle(it) }
 
         return builder.build()
     }
