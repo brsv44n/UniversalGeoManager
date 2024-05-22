@@ -10,7 +10,6 @@ class Geofence private constructor() {
         fun create() : Geofence = Geofence()
     }
 
-
     var expirationTime: Long? = null
         private set
 

@@ -11,21 +11,21 @@ class LocationSettingsStatesHms(
         TODO()
     }
 
-    override fun isBlePresent(): Boolean = locationSettingsStates!!.isBlePresent
+    override fun isBlePresent(): Boolean = locationSettingsStates?.isBlePresent.let { this.isBlePresent() }
 
-    override fun isBleUsable(): Boolean = locationSettingsStates!!.isBleUsable
+    override fun isBleUsable(): Boolean = locationSettingsStates?.isBleUsable.let { this.isGpsUsable() }
 
-    override fun isGpsPresent(): Boolean = locationSettingsStates!!.isGpsPresent
+    override fun isGpsPresent(): Boolean = locationSettingsStates?.isGpsPresent.let { this.isGpsPresent() }
 
-    override fun isGpsUsable(): Boolean = locationSettingsStates!!.isGpsUsable
+    override fun isGpsUsable(): Boolean = locationSettingsStates?.isGpsUsable.let { this.isGpsUsable() }
 
-    override fun isLocationPresent(): Boolean = locationSettingsStates!!.isLocationPresent
+    override fun isLocationPresent(): Boolean = locationSettingsStates?.isLocationPresent.let { this.isLocationPresent() }
 
-    override fun isLocationUsable(): Boolean = locationSettingsStates!!.isLocationUsable
+    override fun isLocationUsable(): Boolean = locationSettingsStates?.isLocationUsable.let { this.isLocationUsable() }
 
-    override fun isNetworkLocationPresent(): Boolean = locationSettingsStates!!.isNetworkLocationPresent
+    override fun isNetworkLocationPresent(): Boolean = locationSettingsStates?.isNetworkLocationPresent.let { this.isNetworkLocationPresent() }
 
-    override fun isNetworkLocationUsable(): Boolean = locationSettingsStates!!.isNetworkLocationUsable
+    override fun isNetworkLocationUsable(): Boolean = locationSettingsStates?.isNetworkLocationUsable.let { this.isNetworkLocationUsable() }
 
     override fun writeToParcel(dest: Parcel, flags: Int) = locationSettingsStates!!.writeToParcel(dest, flags)
 }

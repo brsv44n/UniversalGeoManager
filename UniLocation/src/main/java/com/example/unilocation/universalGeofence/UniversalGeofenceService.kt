@@ -10,6 +10,6 @@ object UniversalGeofenceService {
     fun getGeofenceClient(context: Context): GeofenceClient {
         return if (isGMSAvailable(context)) GeofenceClientGms(context)
         else if (isHMSAvailable(context)) GeofenceClientHms(context)
-        else TODO("something if missing...")
+        else throw UnsupportedOperationException("Geofencing is not supported on this device.")
     }
 }

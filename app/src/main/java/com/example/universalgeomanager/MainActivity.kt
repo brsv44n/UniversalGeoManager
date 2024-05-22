@@ -76,8 +76,8 @@ class MainActivity : ComponentActivity() {
             }
         ).addOnFailureListener(
             object : OnFailureListener {
-                override fun onFailure() {
-                    Log.d("MainActivityLogs", "In process, new Geofence wasn't added")
+                override fun onFailure(exception: Exception) {
+                    Log.d("MainActivityLogs", "${exception.message}")
                 }
             }
         )

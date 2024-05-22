@@ -25,8 +25,10 @@ class LocationProviderClientGms(private val context: Context):
         ConcurrentHashMap<LocationCallback, com.google.android.gms.location.LocationCallback>()
 
     @RequiresPermission(anyOf = ["android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_FINE_LOCATION"])
-    override fun getLastLocation(): TaskWrapper<Location> =
-        TaskWrapperGms(locationProvider.lastLocation)
+    override fun getLastLocation(): TaskWrapper<Location> {
+        return TaskWrapperGms(locationProvider.lastLocation)
+    }
+
 
     private val locationRequestMapper =
         LocationRequestGmsMapper()
