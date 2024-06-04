@@ -1,6 +1,7 @@
 package com.example.unilocation.universalLocation.dls
 
 import android.app.Activity
+import android.location.LocationManager
 import com.example.unilocation.universalLocation.OnCancelledListener
 import com.example.unilocation.universalLocation.OnCompleteListener
 import com.example.unilocation.universalLocation.OnFailureListener
@@ -8,7 +9,7 @@ import com.example.unilocation.universalLocation.OnSuccessListener
 import com.example.unilocation.universalLocation.TaskWrapper
 import java.util.concurrent.Executor
 
-class TaskWrapperDls<Result> : TaskWrapper<Result> {
+class TaskWrapperDls<Result> (locationManager: LocationManager): TaskWrapper<Result> {
     override fun addOnCancelledListener(listener: OnCancelledListener): TaskWrapper<Result> {
         TODO("Not yet implemented")
     }

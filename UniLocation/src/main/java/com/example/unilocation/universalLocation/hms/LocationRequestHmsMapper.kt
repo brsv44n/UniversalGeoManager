@@ -22,16 +22,6 @@ class LocationRequestHmsMapper {
                 hmsRequest.setPriority(hmsPriority)
             }
 
-            /*
-            request.expirationTime?.let { expirationTime = it }
-            request.expirationDuration?.let { setExpirationDuration(it) }
-            request.fastestInterval?.let { fastestInterval = it }
-            request.interval?.let { interval = it }
-            request.maxWaitTime?.let { maxWaitTime = it }
-            request.numUpdates?.let { numUpdates = it }
-            request.smallestDisplacement?.let { smallestDisplacement = it }
-            */
-
             request.expirationDuration?.let { durationTimeMillis ->
                 hmsRequest.setExpirationDuration(durationTimeMillis)
             }

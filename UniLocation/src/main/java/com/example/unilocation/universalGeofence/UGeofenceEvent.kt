@@ -12,12 +12,15 @@ class UGeofenceEvent {
     var geofenceTransition: Int? = null
         private set
 
-    val triggeringGeofences: MutableList<Geofence> = mutableListOf()
-
-    var triggeringLocation: Location? = null
+    var geofenceUniqueId: String? = null
         private set
 
-    var hasError: Boolean? = null
+//    val triggeringGeofences: MutableList<Geofence> = mutableListOf()
+
+//    var triggeringLocation: Location? = null
+//        private set
+
+//    var hasError: Boolean? = null
     fun setErrorCode(errorCode: Int){
         this.errorCode = errorCode
     }
@@ -26,16 +29,19 @@ class UGeofenceEvent {
         this.geofenceTransition = geofenceTransition
     }
 
-    fun addTriggeringGeofence(geofence: Geofence) {
-        triggeringGeofences.add(geofence)
+    fun setGeofenceUniqueId(geofenceUniqueId: String) {
+        this.geofenceUniqueId = geofenceUniqueId
     }
+//    fun addTriggeringGeofence(geofence: Geofence) {
+//        triggeringGeofences.add(geofence)
+//    }
 
-    fun setTriggeringLocation(location: Location){
-        triggeringLocation = location
-    }
+//    fun setTriggeringLocation(location: Location){
+//        triggeringLocation = location
+//    }
 
-    fun setErrorExistence(hasError: Boolean) {
-        this.hasError = hasError
-    }
+//    fun setErrorExistence(hasError: Boolean) {
+//        this.hasError = hasError
+//    }
 
 }

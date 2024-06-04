@@ -16,10 +16,6 @@ import com.example.unilocation.universalLocation.location.LocationCallback
 import com.example.unilocation.universalLocation.location.LocationResult
 import com.example.universalgeomanager.ui.theme.UniversalGeoManagerTheme
 
-/**
- * реализовать LocationProviderClient для дефолтного LocationManager (надо думать как)
- */
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
