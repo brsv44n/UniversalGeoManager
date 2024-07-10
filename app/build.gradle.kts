@@ -70,6 +70,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation(project(":UniLocation"))
+    implementation("org.osmdroid:osmdroid-android:6.1.18")
 
 
 }
